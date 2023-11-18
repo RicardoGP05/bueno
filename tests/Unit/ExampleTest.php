@@ -35,7 +35,7 @@ class ExampleTest extends TestCase
     // Verifica que un array tiene un número específico de elementos
     public function testArrayCount()
     {
-        $numbers = [1, 2, 3, 4, 8];
+        $numbers = [1, 2, 3, 4, 5];
         $this->assertCount(5, $numbers);
     }
 
