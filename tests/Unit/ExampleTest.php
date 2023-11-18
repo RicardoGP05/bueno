@@ -2,41 +2,48 @@
 
 namespace Tests\Unit;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
- 
-    // Verifica que 2 + 2 sea igual a 4
+    private $controller;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->controller = new Controller();
+    }
+
     public function testSumIsCorrect()
     {
-        $result = 2 + 2;
+        $result = $this->controller->sum(2, 2);
         $this->assertEquals(4, $result);
     }
-    // Verifica que el valor y el tipo de una variable sean exactamente iguales
+
     public function testStringIdentity()
     {
         $string1 = "Hola";
-        $string2 = "Hola";
+        $string2 = $this->controller->getHello();
         $this->assertSame($string1, $string2);
     }
-    // Verifica que un array contiene un elemento específico
+
     public function testArrayContainsElement()
     {
         $fruits = ['apple', 'orange', 'banana'];
-        $this->assertContains('banana', $fruits);
+        $this->assertTrue($this->controller->arrayContainsElement('banana', $fruits));
     }
-    // Verifica que se lance una excepción específica
+
     public function testExceptionIsThrown()
     {
         $this->expectException(\InvalidArgumentException::class);
-        throw new \InvalidArgumentException("This is an invalid argument exception.");
+        $this->controller->throwException();
     }
-    // Verifica que un array tiene un número específico de elementos
+
     public function testArrayCount()
     {
         $numbers = [1, 2, 3, 4, 5];
-        $this->assertCount(5, $numbers);
+        $this->assertCount(5, $this->controller->getNumbers());
     }
-
 }
