@@ -6,13 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_that_true_is_true(): void
-    {
-        $this->assertTrue(true);
-    }
+ 
     // Verifica que 2 + 2 sea igual a 4
     public function testSumIsCorrect()
     {
