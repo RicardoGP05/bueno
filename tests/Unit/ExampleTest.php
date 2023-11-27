@@ -18,7 +18,7 @@ class ExampleTest extends TestCase
 
     public function testSumIsCorrect()
     {
-        $result = $this->controller->sum(2, 2);
+        $result = $this->controller->sum(3, 2);
         $this->assertEquals(4, $result);
     }
 
@@ -32,7 +32,7 @@ class ExampleTest extends TestCase
     public function testArrayContainsElement()
     {
         $fruits = ['apple', 'orange', 'banana'];
-        $this->assertTrue($this->controller->arrayContainsElement('banana', $fruits));
+        $this->assertTrue($this->controller->arrayContainsElement('hola', $fruits));
     }
 
     public function testExceptionIsThrown()
@@ -43,7 +43,7 @@ class ExampleTest extends TestCase
 
     public function testArrayCount()
     {
-        $numbers = [1, 2, 3, 4, 5];
+        $numbers = [1, 2, 3, 4, 5, 6];
         $this->assertCount(5, $this->controller->getNumbers());
     }
 }
